@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+}
+html,
+body {
+  background: white;
+  font-size: 1.8rem;
+}
+
+.contain {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

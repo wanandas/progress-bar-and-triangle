@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contain">
+        <div class="circular">
+            <div class="inner"></div>
+            <p class="number">0%</p>
+            <div class="circle">
+                <div class="bar left">
+                    <div class="progress" id='leftProgress'></div>
+                </div>
+                <div class="bar right">
+                    <div class="progress" id='rightProgress'></div>
+                </div>
+            </div>
+        </div>
+        <div class="contain-btn">
+            <button class="btn increase">+</button>
+            <button class="btn decrease">-</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let counter = 0;
+    const numb = document.querySelector(".number");
+    const increase = document.querySelector(".increase");
+    const decrease = document.querySelector(".decrease");
+
+    const rightProgress = document.querySelector("#rightProgress");
+    const leftProgress = document.querySelector("#leftProgress");
+
+
+    increase.addEventListener("click", function () {
+        if (counter >= 20) {
+            return
+        } else {
+            counter++;
+            let rotate = (counter) * 18;
+            if (counter <= 10) {
+                leftProgress.style.cssText += `transform: rotate(${rotate}deg);`;
+            }
+            if (counter >= 10) {
+                rightProgress.style.cssText += `transform: rotate(${rotate - 180}deg);`;
+            }
+            return numb.textContent = counter * 5 + '%';
+        }
+    });
+
+    decrease.addEventListener("click", function () {
+        if (counter <= 0) {
+            return
+        } else {
+            counter--;
+            let rotate = (counter) * 18;
+            if (counter < 10) {
+                leftProgress.style.cssText += `transform: rotate(${rotate}deg);`;
+            }
+            if (counter === 10) {
+                rightProgress.style.cssText += `transform: rotate(${0}deg);`;
+            }
+            if (counter > 10) {
+                rightProgress.style.cssText += `transform: rotate(${rotate - 180}deg);`;
+            }
+            return numb.textContent = counter * 5 + '%';
+        }
+    });
+
+</script>
+
+</html>
