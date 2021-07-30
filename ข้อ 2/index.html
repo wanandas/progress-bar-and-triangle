@@ -22,6 +22,10 @@
             contain.appendChild(itemRow)
             itemRow.appendChild(item)
         } else if (i === 10) {
+            const itemL = document.createElement('p');
+            const itemR = document.createElement('p');
+            itemL.textContent = 'x'
+            itemR.textContent = 'x'
             itemRow.style = `display:flex;justify-content:space-between;width:${i * 2}ch`
             for (let n = 0; n <= i; n++) {
                 const item = document.createElement('p')
@@ -29,6 +33,8 @@
                 contain.appendChild(itemRow)
                 itemRow.appendChild(item)
             }
+            itemRow.appendChild(itemL)
+            itemRow.appendChild(itemR)
         } else {
             itemRow.style = `display:flex;justify-content:space-between;width:${i * 2}ch`
             const itemL = document.createElement('p');
@@ -38,6 +44,7 @@
             contain.appendChild(itemRow)
             itemRow.appendChild(itemL)
             itemRow.appendChild(itemR)
+
         }
     }
 </script>
